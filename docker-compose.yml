@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  selling-items-service:
+    image: selling-items-service:latest
+    container_name: selling-items-service
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8085:8085
+    volumes:
+      - /data/app
+    networks:
+      - autostreet_shared
+
+networks:
+  autostreet_shared:
+    external: true
+    name: autostreet_shared
