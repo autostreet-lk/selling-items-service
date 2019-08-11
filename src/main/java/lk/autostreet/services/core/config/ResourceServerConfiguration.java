@@ -16,6 +16,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/brands/{brand-id}/models").permitAll()
+                .antMatchers(HttpMethod.POST, "/sellers/{seller-id}/items").permitAll()
                 .antMatchers(HttpMethod.GET, "/items/categories").permitAll()
                 .antMatchers(HttpMethod.GET, "/items/types").permitAll()
                 .antMatchers(HttpMethod.GET, "/items/fuel-types").permitAll()

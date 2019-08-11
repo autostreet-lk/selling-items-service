@@ -2,6 +2,7 @@ package lk.autostreet.services.core.service.impl;
 
 import com.netflix.discovery.converters.Auto;
 import lk.autostreet.services.core.exception.AlreadyRegisteredException;
+import lk.autostreet.services.core.exception.AppGenericException;
 import lk.autostreet.services.core.exception.NotCreatedException;
 import lk.autostreet.services.core.model.ItemCategory;
 import lk.autostreet.services.core.model.ItemType;
@@ -31,7 +32,7 @@ public class ItemCategoryServiceImpl implements ItemCategoryService {
     }
 
     @Override
-    public <E1 extends NotCreatedException, E2 extends AlreadyRegisteredException> ItemCategory create(ItemCategory itemCategory) throws E1, E2 {
+    public  ItemCategory create(ItemCategory itemCategory) throws AppGenericException {
         return null;
     }
 
