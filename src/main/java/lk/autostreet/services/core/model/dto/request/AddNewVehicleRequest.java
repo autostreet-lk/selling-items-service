@@ -6,7 +6,6 @@ import lk.autostreet.services.core.model.TransmissionType;
 import lk.autostreet.services.core.model.VehicleCondition;
 import lombok.Data;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -36,5 +35,7 @@ public class AddNewVehicleRequest extends AddNewItemRequest {
 
     @NotNull(message = "vehicle condition is required")
     private VehicleCondition condition;
+
+    private String trim;
 }
 

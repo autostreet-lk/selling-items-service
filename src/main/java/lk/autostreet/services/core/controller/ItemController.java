@@ -16,8 +16,11 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -244,4 +247,41 @@ public class ItemController implements ItemApi {
 //                .categoryItems(categoryItemList)
 //                .build();
 //    }
+
+
+    @PostMapping("/items/images")
+    public void saveImage(@RequestParam("image") MultipartFile multipartFile) throws IOException {
+        log.info("request to save the image ");
+
+////        File file = ResourceUtils.getFile("classpath:static/SampleJPGImage_500kbmb.jpg");
+//       File file =  new ClassPathResource("static/SampleJPGImage_500kbmb.jpg").getInputStream();
+//        byte[] fileContent = FileUtils.readFileToByteArray(file);
+//        String encodedString = Base64.getEncoder().encodeToString(fileContent);
+//
+
+
+//        log.info("=====encded string");
+//        log.info(image);
+//
+//        byte[] decodedBytes = Base64.getDecoder().decode(image);
+//        FileUtils.writeByteArrayToFile(new File("test_image.jpeg"), decodedBytes);
+
+
+        //saving the original file
+        File file = new File("/app/"+multipartFile.getOriginalFilename());
+        multipartFile.transferTo(file);
+
+
+        log.info("file was saved [" + file.getAbsolutePath() + "]");
+        log.info("file was saved [" + file.getPath() + "]");
+
+
+        // Obtain an image to encode from somewhere
+
+        BufferedImage image = ImageIO.read(file);
+
+// Encode it as webp using default settings
+        ImageIO.write(image, "webp", new File("/app/output.webp"));
+        log.info("webp image was saved");
+    }
 }

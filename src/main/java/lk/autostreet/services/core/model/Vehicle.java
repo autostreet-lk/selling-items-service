@@ -6,7 +6,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Data
-@ToString(callSuper=true)
+@ToString(callSuper = true)
 @Entity
 @DiscriminatorValue("VEHICLE")
 public class Vehicle extends Item {
@@ -30,4 +30,7 @@ public class Vehicle extends Item {
     @Enumerated(EnumType.STRING)
     @Column(name = "item_condition")
     private VehicleCondition condition;
+
+    @Column(name = "trim")
+    private String trim;
 }

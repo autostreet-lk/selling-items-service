@@ -73,6 +73,7 @@ public class AddNewItemTransformer implements Transformer<Item, AddNewItemReques
         vehicle.setFuelType(request.getFuelType());
         vehicle.setMillage(request.getMillage());
         vehicle.setCondition(request.getCondition());
+        vehicle.setTrim(request.getTrim());
         vehicle.setEngineCapacity(request.getEngineCapacity());
 
         return vehicle;

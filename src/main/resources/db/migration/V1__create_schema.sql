@@ -23,6 +23,7 @@ CREATE TABLE `selling_items` (
   `item_condition` varchar(20) NOT NULL,
    item_type varchar(20) DEFAULT NULL,
   `transmission` varchar(50) DEFAULT NULL,
+  `trim` varchar(200) DEFAULT NULL,
   `fuel_type` varchar(50) DEFAULT NULL,
   `engine_capacity` varchar(15) DEFAULT NULL,
   `millage` bigint(20) DEFAULT NULL,

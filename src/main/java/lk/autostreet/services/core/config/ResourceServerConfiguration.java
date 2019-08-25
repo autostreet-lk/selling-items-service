@@ -22,6 +22,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
                 .antMatchers(HttpMethod.GET, "/items/fuel-types").permitAll()
                 .antMatchers(HttpMethod.GET, "/items/transmissions").permitAll()
                 .antMatchers(HttpMethod.GET, "/items/conditions").permitAll()
+                .antMatchers(HttpMethod.POST, "/items/images").permitAll()
                 .anyRequest().authenticated();
     }
 }
